@@ -34,7 +34,7 @@
 	jr32	_Dummy ; FETRAP
 
 	.align	16
-	jr32	_Dummy_EI ; TRAP0
+	jr32	_vPortYield ; TRAP0
 
 	.align	16
 	jr32	_Dummy_EI ; TRAP1
@@ -74,7 +74,7 @@
 
 	.align	16
 	syncp
-	jr32	_Dummy_EI ; INTn(priority0)
+	jr32	_MD_INTTM0EQ0 ; INTn(priority0)
 
 	.align	16
 	syncp

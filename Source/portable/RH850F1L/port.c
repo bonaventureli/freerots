@@ -186,10 +186,16 @@ static void prvSetupTimerInterrupt( void )
 	TM0EQMK0 =  0;	/* INTTM0EQ0 interrupt enable */
 	TM0CE =     1;	/* TMM0 operation enable */
 	#endif
-	
+	OSTM0.CMP = 40000;// 1ms Set the value with which the counter is compared,xxx
+	//OSTM0.CMP =  0x3D0900U; //100ms -4000000
+	//OSTM0.CMP = 0x1312D00U; //500ms
+	OSTM0.CTL = 0X01U;	                     //Set interval mode,disable interrupt at counter start.
+	OSTM0.EMU = 0X00U;	                     //The counter clock is stopped when the debugger acquires control of the microcontroller.                                   
+	OSTM0.TS = 0X01;				  		                    //Start the counter.
+  MKOSTM0=1; //mask EI exception
+	FEINTFMSK&=(~0x4000);	//enable FEINT
 }
 /*-----------------------------------------------------------*/
-
 
 #pragma inline_asm trap_set
 void trap_set(void)
@@ -375,5 +381,4 @@ void MD_INTTM0EQ0(void)
     EIRET
 
 }
-
 

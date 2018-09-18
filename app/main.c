@@ -41,13 +41,7 @@ StackType_t Stack3[ STACK_SIZE ];
 void main(void)
 {
 	R_CLOCK_Init();                       /* Clock initialize    */
-	OSTM0_INIT();						  /* OSTM0 initialize    */
-	
-  /*Open Interrupt*/
-	__EI();
-	
-	OSTM0_START(); /* OSTM0 start    */
-	
+
 }
 void vApplicationStackOverflowHook( TaskHandle_t xTask, char *pcTaskName )
 {

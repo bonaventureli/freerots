@@ -1,11 +1,9 @@
 -input=DefaultBuild\boot.obj
 -input=DefaultBuild\cstart.obj
--input=DefaultBuild\main.obj
 -input=DefaultBuild\croutine.obj
 -input=DefaultBuild\event_groups.obj
 -input=DefaultBuild\list.obj
 -input=DefaultBuild\queue.obj
--input=DefaultBuild\stream_buffer.obj
 -input=DefaultBuild\tasks.obj
 -input=DefaultBuild\timers.obj
 -input=DefaultBuild\port.obj
@@ -14,6 +12,8 @@
 -input=DefaultBuild\Kit1.obj
 -input=DefaultBuild\r_interrupt.obj
 -input=DefaultBuild\BspTimer.obj
+-input=DefaultBuild\stream_buffer.obj
+-input=DefaultBuild\main.obj
 -debug
 -nocompress
 -output=DefaultBuild\freerots.abs

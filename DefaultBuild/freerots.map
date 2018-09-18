@@ -1,16 +1,14 @@
-Renesas Optimizing Linker (V2.06.00 )             17-Sep-2018 18:06:28
+Renesas Optimizing Linker (V2.06.00 )             18-Sep-2018 10:03:26
 
 *** Options ***
 
 -subcommand=DefaultBuild\freerots.clnk
 -input=DefaultBuild\boot.obj
 -input=DefaultBuild\cstart.obj
--input=DefaultBuild\main.obj
 -input=DefaultBuild\croutine.obj
 -input=DefaultBuild\event_groups.obj
 -input=DefaultBuild\list.obj
 -input=DefaultBuild\queue.obj
--input=DefaultBuild\stream_buffer.obj
 -input=DefaultBuild\tasks.obj
 -input=DefaultBuild\timers.obj
 -input=DefaultBuild\port.obj
@@ -19,6 +17,8 @@ Renesas Optimizing Linker (V2.06.00 )             17-Sep-2018 18:06:28
 -input=DefaultBuild\Kit1.obj
 -input=DefaultBuild\r_interrupt.obj
 -input=DefaultBuild\BspTimer.obj
+-input=DefaultBuild\stream_buffer.obj
+-input=DefaultBuild\main.obj
 -debug
 -nocompress
 -output=DefaultBuild\freerots.abs
@@ -42,15 +42,15 @@ RESET
 EIINTTBL
                                   00000200  0000067f       480   200
 .const
-                                  00008000  0000815f       160   4
+                                  00008000  0000801e        1f   4
 .INIT_DSEC.const
-                                  00008160  0000816b         c   4
+                                  00008020  0000802b         c   4
 .INIT_BSEC.const
-                                  0000816c  00008173         8   4
+                                  0000802c  00008033         8   4
 .text
-                                  00008174  0000bd0b      3b98   2
+                                  00008034  0000be71      3e3e   2
 .data
-                                  0000bd0c  0000bd63        58   4
+                                  0000be74  0000becb        58   4
 .data.R
                                   fedfc000  fedfc057        58   4
 .bss

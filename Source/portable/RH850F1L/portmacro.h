@@ -66,8 +66,11 @@ typedef unsigned long UBaseType_t;
 /*-----------------------------------------------------------*/
 
 /* Interrupt control macros. */
-#define portDISABLE_INTERRUPTS()  ( "DI" )
-#define portENABLE_INTERRUPTS()	  ( "EI" )
+//#define portDISABLE_INTERRUPTS()  ( "DI" )
+//#define portENABLE_INTERRUPTS()	  ( "EI" )
+
+#define portDISABLE_INTERRUPTS()  __DI()
+#define portENABLE_INTERRUPTS()	  __EI()
 /*-----------------------------------------------------------*/
 
 /* Critical section control macros. */
