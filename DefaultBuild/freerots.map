@@ -1,4 +1,4 @@
-Renesas Optimizing Linker (V2.06.00 )             18-Sep-2018 10:10:13
+Renesas Optimizing Linker (V2.06.00 )             18-Sep-2018 11:13:28
 
 *** Options ***
 
@@ -33,27 +33,27 @@ Renesas Optimizing Linker (V2.06.00 )             18-Sep-2018 10:10:13
 
 *** Error information ***
 
-*** Mapping List ***
-
-SECTION                            START      END         SIZE   ALIGN
-
-RESET
-                                  00000000  000001f7       1f8   200
-EIINTTBL
-                                  00000200  0000067f       480   200
-.const
-                                  00008000  0000801e        1f   4
-.INIT_DSEC.const
-                                  00008020  0000802b         c   4
-.INIT_BSEC.const
-                                  0000802c  00008033         8   4
-.text
-                                  00008034  0000be71      3e3e   2
-.data
-                                  0000be74  0000becb        58   4
-.data.R
-                                  fedfc000  fedfc057        58   4
-.bss
-                                  fedfc058  fedfcb63       b0c   4
-.stack.bss
-                                  fedfcb64  fedfcd63       200   4
+E0562310:Undefined external symbol "_xAreGenericQueueTasksStillRunning" referenced in "DefaultBuild\main.obj"
+E0562310:Undefined external symbol "_xIsCreateTaskStillRunning" referenced in "DefaultBuild\main.obj"
+E0562310:Undefined external symbol "_vPortFree" referenced in "DefaultBuild\event_groups.obj"
+E0562310:Undefined external symbol "_vPortFree" referenced in "DefaultBuild\queue.obj"
+E0562310:Undefined external symbol "_vPortFree" referenced in "DefaultBuild\tasks.obj"
+E0562310:Undefined external symbol "_vPortFree" referenced in "DefaultBuild\timers.obj"
+E0562310:Undefined external symbol "_vPortFree" referenced in "DefaultBuild\stream_buffer.obj"
+E0562310:Undefined external symbol "_vParTestInitialise" referenced in "DefaultBuild\main.obj"
+E0562310:Undefined external symbol "_vRegTest1" referenced in "DefaultBuild\main.obj"
+E0562310:Undefined external symbol "_vRegTest2" referenced in "DefaultBuild\main.obj"
+E0562310:Undefined external symbol "_vParTestToggleLED" referenced in "DefaultBuild\main.obj"
+E0562310:Undefined external symbol "_vStartQueuePeekTasks" referenced in "DefaultBuild\main.obj"
+E0562310:Undefined external symbol "_xAreSemaphoreTasksStillRunning" referenced in "DefaultBuild\main.obj"
+E0562310:Undefined external symbol "_vStartSemaphoreTasks" referenced in "DefaultBuild\main.obj"
+E0562310:Undefined external symbol "_xAreQueuePeekTasksStillRunning" referenced in "DefaultBuild\main.obj"
+E0562310:Undefined external symbol "_pvPortMalloc" referenced in "DefaultBuild\event_groups.obj"
+E0562310:Undefined external symbol "_pvPortMalloc" referenced in "DefaultBuild\queue.obj"
+E0562310:Undefined external symbol "_pvPortMalloc" referenced in "DefaultBuild\tasks.obj"
+E0562310:Undefined external symbol "_pvPortMalloc" referenced in "DefaultBuild\timers.obj"
+E0562310:Undefined external symbol "_pvPortMalloc" referenced in "DefaultBuild\stream_buffer.obj"
+E0562310:Undefined external symbol "_vCreateSuicidalTasks" referenced in "DefaultBuild\main.obj"
+E0562310:Undefined external symbol "_vApplicationGetIdleTaskMemory" referenced in "DefaultBuild\tasks.obj"
+E0562310:Undefined external symbol "_vApplicationGetTimerTaskMemory" referenced in "DefaultBuild\timers.obj"
+E0562310:Undefined external symbol "_vStartGenericQueueTasks" referenced in "DefaultBuild\main.obj"
