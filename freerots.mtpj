@@ -10,22 +10,8 @@
       <Property>fb98844b-2c27-4275-9804-f6e63e204da0</Property>
       <ActiveProjectGuid>9e21f2a0-1e9d-4a8b-a05e-4d80bca54d67</ActiveProjectGuid>
     </Instance>
-    <Instance Guid="db0210a7-ce44-4921-810c-d6730a9cfac4">
-      <Name>boot.asm</Name>
-      <Type>File</Type>
-      <RelativePath>boot.asm</RelativePath>
-      <TreeImageGuid>f654126d-e7ad-426d-be34-8455271d959b</TreeImageGuid>
-      <ParentItem>d2beb2b3-251f-414e-8169-a801e0ad2e37</ParentItem>
-    </Instance>
-    <Instance Guid="7718f6e0-8b03-4d3c-be53-fe6407766efa">
-      <Name>cstart.asm</Name>
-      <Type>File</Type>
-      <RelativePath>cstart.asm</RelativePath>
-      <TreeImageGuid>f654126d-e7ad-426d-be34-8455271d959b</TreeImageGuid>
-      <ParentItem>d2beb2b3-251f-414e-8169-a801e0ad2e37</ParentItem>
-    </Instance>
     <Instance Guid="677597ab-ef1a-4cb0-b5bf-f7edf1cdf9a5">
-      <Name>Source</Name>
+      <Name>kernel</Name>
       <Type>Category</Type>
       <ParentItem>d2beb2b3-251f-414e-8169-a801e0ad2e37</ParentItem>
       <Property>94ccb279-f642-46f5-bfa8-e35b04f4db05</Property>
@@ -35,6 +21,12 @@
       <Type>Category</Type>
       <ParentItem>d2beb2b3-251f-414e-8169-a801e0ad2e37</ParentItem>
       <Property>6e3dad3d-b2da-4be5-b39f-75d0c3fbcb2a</Property>
+    </Instance>
+    <Instance Guid="87b4642c-ba56-4cb1-bb9e-4cd3fb64470a">
+      <Name>system</Name>
+      <Type>Category</Type>
+      <ParentItem>d2beb2b3-251f-414e-8169-a801e0ad2e37</ParentItem>
+      <Property>0576972a-5731-4255-99b9-9b2eac5749d0</Property>
     </Instance>
     <Instance Guid="165f6367-b9f7-4df6-84f7-e2e215264e7e">
       <Name>portable</Name>
@@ -352,6 +344,20 @@
       <TreeImageGuid>941832c1-fc3b-4e1b-94e8-01ea17128b42</TreeImageGuid>
       <ParentItem>8a897142-e1a4-4824-882a-24ee0a7c49b7</ParentItem>
     </Instance>
+    <Instance Guid="db0210a7-ce44-4921-810c-d6730a9cfac4">
+      <Name>boot.asm</Name>
+      <Type>File</Type>
+      <RelativePath>boot.asm</RelativePath>
+      <TreeImageGuid>f654126d-e7ad-426d-be34-8455271d959b</TreeImageGuid>
+      <ParentItem>87b4642c-ba56-4cb1-bb9e-4cd3fb64470a</ParentItem>
+    </Instance>
+    <Instance Guid="7718f6e0-8b03-4d3c-be53-fe6407766efa">
+      <Name>cstart.asm</Name>
+      <Type>File</Type>
+      <RelativePath>cstart.asm</RelativePath>
+      <TreeImageGuid>f654126d-e7ad-426d-be34-8455271d959b</TreeImageGuid>
+      <ParentItem>87b4642c-ba56-4cb1-bb9e-4cd3fb64470a</ParentItem>
+    </Instance>
   </Class>
   <Class Guid="fb98844b-2c27-4275-9804-f6e63e204da0">
     <Instance Guid="fb98844b-2c27-4275-9804-f6e63e204da0">
@@ -370,6 +376,9 @@
       <MemoCount>0</MemoCount>
     </Instance>
     <Instance Guid="db90099d-530f-4e8f-9f00-0153eeb01d68">
+      <MemoCount>0</MemoCount>
+    </Instance>
+    <Instance Guid="0576972a-5731-4255-99b9-9b2eac5749d0">
       <MemoCount>0</MemoCount>
     </Instance>
   </Class>
