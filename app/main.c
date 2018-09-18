@@ -6,8 +6,9 @@
 /*  CPU TYPE    :                                                      */
 /*                                                                     */
 /*  NOTE:THIS IS A TYPICAL EXAMPLE.                                    */
-/*                                                                     */
+/*  version 0.1                                                                   */
 /***********************************************************************/
+
 #include <stdlib.h>
 #include <string.h>
 #include "FreeRTOS.h"
