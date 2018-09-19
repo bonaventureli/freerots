@@ -97,7 +97,7 @@
 
     
     #define   configSUPPORT_STATIC_ALLOCATION 1
-    #define  configSUPPORT_DYNAMIC_ALLOCATION 0 
+    #define  configSUPPORT_DYNAMIC_ALLOCATION 1 
 
 	/* This IAR workspace contains several different projects - each of which
 	is targeted at a different device variant.  The definitions past this point

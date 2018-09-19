@@ -33,10 +33,11 @@
 #include "task.h"
 #include "iodefine.h"
 
+
 extern void vPortStart(void);
 void trap_set(void);
-void portSAVE_CONTEXT(void);
-void portRESTORE_CONTEXT(void);
+extern void portSAVE_CONTEXT(void);
+extern void portRESTORE_CONTEXT(void);
 
 /* Critical nesting should be initialised to a non zero value so interrupts don't
 accidentally get enabled before the scheduler is started. */
@@ -207,6 +208,7 @@ void trap_set(void)
 #pragma inline_asm portSAVE_CONTEXT
 void portSAVE_CONTEXT(void)
 {
+
     //add     -0x0C,sp            //prepare stack to save necessary values
     //st.w    lp,8[sp]            //store LP to stack
    // stsr    0,r31,0
@@ -315,6 +317,7 @@ void portRESTORE_CONTEXT(void)
     //ld.w    8[sp],lp                        //restore LP from stack
     //add     0x0C,sp                        //set SP to right position
     //EIRET
+
 }
 
 
@@ -360,6 +363,7 @@ void vPortYield(void)
 #pragma inline_asm MD_INTTM0EQ0
 void MD_INTTM0EQ0(void)
 {
+	
     add     -0x0C,sp                          // prepare stack to save necessary values
     st.w    lp,8[sp]                        // store LP to stack
     stsr    0,r31

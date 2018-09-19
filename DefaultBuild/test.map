@@ -1,0 +1,70 @@
+Renesas Optimizing Linker (V2.06.00 )             19-Sep-2018 21:45:50
+
+*** Options ***
+
+-subcommand=DefaultBuild\test.clnk
+-input=DefaultBuild\boot.obj
+-input=DefaultBuild\cstart.obj
+-input=DefaultBuild\croutine.obj
+-input=DefaultBuild\event_groups.obj
+-input=DefaultBuild\list.obj
+-input=DefaultBuild\queue.obj
+-input=DefaultBuild\tasks.obj
+-input=DefaultBuild\timers.obj
+-input=DefaultBuild\port.obj
+-input=DefaultBuild\ostm0.obj
+-input=DefaultBuild\r_clock.obj
+-input=DefaultBuild\Kit1.obj
+-input=DefaultBuild\r_interrupt.obj
+-input=DefaultBuild\BspTimer.obj
+-input=DefaultBuild\stream_buffer.obj
+-input=DefaultBuild\main.obj
+-input=DefaultBuild\heap_2.obj
+-input=DefaultBuild\AbortDelay.obj
+-input=DefaultBuild\death.obj
+-input=DefaultBuild\flop.obj
+-input=DefaultBuild\integer.obj
+-input=DefaultBuild\semtest.obj
+-input=DefaultBuild\GenQTest.obj
+-input=DefaultBuild\QPeek.obj
+-input=DefaultBuild\ParTest_Generic_Target_Board.obj
+-input=DefaultBuild\comtest.obj
+-input=DefaultBuild\serial.obj
+-debug
+-nocompress
+-output=DefaultBuild\test.abs
+-library=v850e3v5\rhs8n.lib
+-library=v850e3v5\libmalloc.lib
+-list=DefaultBuild\test.map
+-start=RESET,EIINTTBL/0,.const,.INIT_DSEC.const,.INIT_BSEC.const,.text,.data/00008000,.data.R,.bss,.stack.bss/FEDFC000
+-rom=.data=.data.R
+-memory=high
+-nologo
+-end
+
+*** Error information ***
+
+*** Mapping List ***
+
+SECTION                            START      END         SIZE   ALIGN
+
+RESET
+                                  00000000  000001f7       1f8   200
+EIINTTBL
+                                  00000200  0000067f       480   200
+.const
+                                  00008000  000080c3        c4   4
+.INIT_DSEC.const
+                                  000080c4  000080cf         c   4
+.INIT_BSEC.const
+                                  000080d0  000080d7         8   4
+.text
+                                  000080d8  0000e383      62ac   2
+.data
+                                  0000e384  0000e44b        c8   4
+.data.R
+                                  fedfc000  fedfc0c7        c8   4
+.bss
+                                  fedfc0c8  fedfef2f      2e68   4
+.stack.bss
+                                  fedfef30  fedff12f       200   4
