@@ -6,7 +6,7 @@
 /*  CPU TYPE    :                                                      */
 /*                                                                     */
 /*  NOTE:THIS IS A TYPICAL EXAMPLE.                                    */
-/*  version 0.3                                                                   */
+/*  version 0.4                                                                   */
 /***********************************************************************/
 #include <stdlib.h>
 #include <string.h>
