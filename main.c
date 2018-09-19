@@ -6,9 +6,8 @@
 /*  CPU TYPE    :                                                      */
 /*                                                                     */
 /*  NOTE:THIS IS A TYPICAL EXAMPLE.                                    */
-/*  version 0.1                                                                   */
+/*                                                                     */
 /***********************************************************************/
-
 #include <stdlib.h>
 #include <string.h>
 #include "FreeRTOS.h"
@@ -42,8 +41,13 @@ StackType_t Stack3[ STACK_SIZE ];
 void main(void)
 {
 	R_CLOCK_Init();                       /* Clock initialize    */
-
-	xTaskCreateStatic( vLED_1_Task, ( signed portCHAR * ) "LED1", STACK_SIZE, NULL, tskIDLE_PRIORITY+1, Stack1,&TaskBuffer1 );
+	OSTM0_INIT();						  /* OSTM0 initialize    */
+	
+  /*Open Interrupt*/
+	__EI();
+	
+	OSTM0_START(); /* OSTM0 start    */
+	
 }
 void vApplicationStackOverflowHook( TaskHandle_t xTask, char *pcTaskName )
 {

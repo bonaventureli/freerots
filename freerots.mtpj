@@ -10,20 +10,6 @@
       <Property>fb98844b-2c27-4275-9804-f6e63e204da0</Property>
       <ActiveProjectGuid>9e21f2a0-1e9d-4a8b-a05e-4d80bca54d67</ActiveProjectGuid>
     </Instance>
-    <Instance Guid="db0210a7-ce44-4921-810c-d6730a9cfac4">
-      <Name>boot.asm</Name>
-      <Type>File</Type>
-      <RelativePath>boot.asm</RelativePath>
-      <TreeImageGuid>f654126d-e7ad-426d-be34-8455271d959b</TreeImageGuid>
-      <ParentItem>d2beb2b3-251f-414e-8169-a801e0ad2e37</ParentItem>
-    </Instance>
-    <Instance Guid="7718f6e0-8b03-4d3c-be53-fe6407766efa">
-      <Name>cstart.asm</Name>
-      <Type>File</Type>
-      <RelativePath>cstart.asm</RelativePath>
-      <TreeImageGuid>f654126d-e7ad-426d-be34-8455271d959b</TreeImageGuid>
-      <ParentItem>d2beb2b3-251f-414e-8169-a801e0ad2e37</ParentItem>
-    </Instance>
     <Instance Guid="677597ab-ef1a-4cb0-b5bf-f7edf1cdf9a5">
       <Name>Source</Name>
       <Type>Category</Type>
@@ -35,6 +21,12 @@
       <Type>Category</Type>
       <ParentItem>d2beb2b3-251f-414e-8169-a801e0ad2e37</ParentItem>
       <Property>6e3dad3d-b2da-4be5-b39f-75d0c3fbcb2a</Property>
+    </Instance>
+    <Instance Guid="2d5385c9-7cf9-436d-b0ea-58d892b3cbfb">
+      <Name>system</Name>
+      <Type>Category</Type>
+      <ParentItem>d2beb2b3-251f-414e-8169-a801e0ad2e37</ParentItem>
+      <Property>b80d2379-48af-4adb-849a-eb59c195267e</Property>
     </Instance>
     <Instance Guid="165f6367-b9f7-4df6-84f7-e2e215264e7e">
       <Name>portable</Name>
@@ -352,6 +344,20 @@
       <TreeImageGuid>941832c1-fc3b-4e1b-94e8-01ea17128b42</TreeImageGuid>
       <ParentItem>8a897142-e1a4-4824-882a-24ee0a7c49b7</ParentItem>
     </Instance>
+    <Instance Guid="7718f6e0-8b03-4d3c-be53-fe6407766efa">
+      <Name>cstart.asm</Name>
+      <Type>File</Type>
+      <RelativePath>cstart.asm</RelativePath>
+      <TreeImageGuid>f654126d-e7ad-426d-be34-8455271d959b</TreeImageGuid>
+      <ParentItem>2d5385c9-7cf9-436d-b0ea-58d892b3cbfb</ParentItem>
+    </Instance>
+    <Instance Guid="db0210a7-ce44-4921-810c-d6730a9cfac4">
+      <Name>boot.asm</Name>
+      <Type>File</Type>
+      <RelativePath>boot.asm</RelativePath>
+      <TreeImageGuid>f654126d-e7ad-426d-be34-8455271d959b</TreeImageGuid>
+      <ParentItem>2d5385c9-7cf9-436d-b0ea-58d892b3cbfb</ParentItem>
+    </Instance>
   </Class>
   <Class Guid="fb98844b-2c27-4275-9804-f6e63e204da0">
     <Instance Guid="fb98844b-2c27-4275-9804-f6e63e204da0">
@@ -370,6 +376,9 @@
       <MemoCount>0</MemoCount>
     </Instance>
     <Instance Guid="db90099d-530f-4e8f-9f00-0153eeb01d68">
+      <MemoCount>0</MemoCount>
+    </Instance>
+    <Instance Guid="b80d2379-48af-4adb-849a-eb59c195267e">
       <MemoCount>0</MemoCount>
     </Instance>
   </Class>
@@ -422,19 +431,19 @@
       <SourceItemType0>AsmSource</SourceItemType0>
       <SourceItemGuid1>7718f6e0-8b03-4d3c-be53-fe6407766efa</SourceItemGuid1>
       <SourceItemType1>AsmSource</SourceItemType1>
-      <SourceItemGuid2>01743002-fa01-4636-88ce-dbf437386ed1</SourceItemGuid2>
+      <SourceItemGuid2>42cc606a-8bdd-4558-bae8-8b88db7abecb</SourceItemGuid2>
       <SourceItemType2>CSource</SourceItemType2>
-      <SourceItemGuid3>42cc606a-8bdd-4558-bae8-8b88db7abecb</SourceItemGuid3>
+      <SourceItemGuid3>68c2146e-ceb1-459f-acca-428c9b836686</SourceItemGuid3>
       <SourceItemType3>CSource</SourceItemType3>
-      <SourceItemGuid4>68c2146e-ceb1-459f-acca-428c9b836686</SourceItemGuid4>
+      <SourceItemGuid4>a351c398-20c9-4c48-ba4f-08e5cafb2e7d</SourceItemGuid4>
       <SourceItemType4>CSource</SourceItemType4>
-      <SourceItemGuid5>a351c398-20c9-4c48-ba4f-08e5cafb2e7d</SourceItemGuid5>
+      <SourceItemGuid5>99b6ffb6-66be-494a-82af-d9334db2fc1c</SourceItemGuid5>
       <SourceItemType5>CSource</SourceItemType5>
-      <SourceItemGuid6>99b6ffb6-66be-494a-82af-d9334db2fc1c</SourceItemGuid6>
+      <SourceItemGuid6>0b7ac530-61b8-41a0-8c69-3a62006d5b60</SourceItemGuid6>
       <SourceItemType6>CSource</SourceItemType6>
-      <SourceItemGuid7>0b7ac530-61b8-41a0-8c69-3a62006d5b60</SourceItemGuid7>
+      <SourceItemGuid7>1c1398e0-f8b2-43d9-a719-9ad80d8f04fc</SourceItemGuid7>
       <SourceItemType7>CSource</SourceItemType7>
-      <SourceItemGuid8>1c1398e0-f8b2-43d9-a719-9ad80d8f04fc</SourceItemGuid8>
+      <SourceItemGuid8>01743002-fa01-4636-88ce-dbf437386ed1</SourceItemGuid8>
       <SourceItemType8>CSource</SourceItemType8>
       <SourceItemGuid9>423ff3ed-0f8f-4ae5-b273-3d8a755c93c6</SourceItemGuid9>
       <SourceItemType9>CSource</SourceItemType9>
@@ -1246,11 +1255,11 @@ Source\include
       <SourceItem1-IndividualAssembleOption-0>False</SourceItem1-IndividualAssembleOption-0>
     </Instance>
     <Instance Guid="ff6292d8-755b-48e4-928f-58b9d98af783">
-      <TimeTagModified-SourceItem2--0>-8586643713862941606</TimeTagModified-SourceItem2--0>
+      <TimeTagModified-SourceItem2--0>-8586644375380577731</TimeTagModified-SourceItem2--0>
       <SourceItem2-IsLockedByUser>False</SourceItem2-IsLockedByUser>
       <SourceItem2-IndividualCompileOption-0>False</SourceItem2-IndividualCompileOption-0>
       <SourceItem2-BuildingTarget-0>True</SourceItem2-BuildingTarget-0>
-      <TimeTagModified-SourceItem3--0>-8586644375380577731</TimeTagModified-SourceItem3--0>
+      <TimeTagModified-SourceItem3--0>-8586644375380572771</TimeTagModified-SourceItem3--0>
       <SourceItem3-IsLockedByUser>False</SourceItem3-IsLockedByUser>
       <SourceItem3-IndividualCompileOption-0>False</SourceItem3-IndividualCompileOption-0>
       <SourceItem3-BuildingTarget-0>True</SourceItem3-BuildingTarget-0>
@@ -1270,7 +1279,7 @@ Source\include
       <SourceItem7-IsLockedByUser>False</SourceItem7-IsLockedByUser>
       <SourceItem7-IndividualCompileOption-0>False</SourceItem7-IndividualCompileOption-0>
       <SourceItem7-BuildingTarget-0>True</SourceItem7-BuildingTarget-0>
-      <TimeTagModified-SourceItem8--0>-8586644375380572771</TimeTagModified-SourceItem8--0>
+      <TimeTagModified-SourceItem8--0>-8586643713862941606</TimeTagModified-SourceItem8--0>
       <SourceItem8-IsLockedByUser>False</SourceItem8-IsLockedByUser>
       <SourceItem8-IndividualCompileOption-0>False</SourceItem8-IndividualCompileOption-0>
       <SourceItem8-BuildingTarget-0>True</SourceItem8-BuildingTarget-0>
