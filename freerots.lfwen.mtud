@@ -504,8 +504,8 @@
       <StatusText0>VerticalSplitPercentage:0.00
 HorizontalSplitPercentage:0.00
 ActiveViewPlacement:Right
-CaretPosition:94,3
-FirstVisiblePosition:Right,96,0
+CaretPosition:24,0
+FirstVisiblePosition:Right,12,0
 </StatusText0>
       <InstanceGuid1>11c76f42-4bd6-4e6f-9ce4-132891353c7c</InstanceGuid1>
       <HelperClassGuid1>e9e5eb74-fd3b-4a6d-9bee-88bf153cb9b0</HelperClassGuid1>
@@ -539,6 +539,7 @@ FirstVisiblePosition:Right,0,0
     <Instance Guid="a86d2744-4eb1-43a4-bbcb-1f717558eac6">
       <ExtendedItems>d01e0392-c44b-4aa0-8d32-4099395c0726
 d2beb2b3-251f-414e-8169-a801e0ad2e37
+2d5385c9-7cf9-436d-b0ea-58d892b3cbfb
 </ExtendedItems>
       <TopItem>d01e0392-c44b-4aa0-8d32-4099395c0726</TopItem>
       <ViewMode>2</ViewMode>
