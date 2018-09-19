@@ -81,7 +81,7 @@ static volatile unsigned long ulTxInProgress = pdFALSE;
 xComPortHandle xSerialPortInitMinimal( unsigned long ulWantedBaud, unsigned portBASE_TYPE uxQueueLength )
 {
 xComPortHandle xReturn = serHANDLE;
-const unsigned long ulFuclk = ( configCPU_CLOCK_HZ / 2 ) / 8UL;
+//const unsigned long ulFuclk = ( configCPU_CLOCK_HZ / 2 ) / 8UL;
 
 	/* Create the queues used to hold Rx and Tx characters. */
 	xRxedChars = xQueueCreate( uxQueueLength, ( unsigned portBASE_TYPE ) sizeof( signed char ) );
@@ -203,20 +203,20 @@ void vSerialClose( xComPortHandle xPort )
 /* Tx interrupt handler.  This is called from the asm file wrapper. */
 void vUARTTxISRHandler( void )
 {
-char cChar;
+//char cChar;
 portBASE_TYPE xHigherPriorityTaskWoken = pdFALSE;
 
 	/* Are there any more characters queue to transmit? */
-	if( xQueueReceiveFromISR( xCharsForTx, &cChar, &xHigherPriorityTaskWoken ) == pdTRUE )
-	{
-		/* Send the next character. */
-		//UD0TX = cChar;
-	}
-	else
-	{
-		/* The UART is no longer active. */
-		ulTxInProgress = pdFALSE;
-	}
+//	if( xQueueReceiveFromISR( xCharsForTx, &cChar, &xHigherPriorityTaskWoken ) == pdTRUE )
+//	{
+//		/* Send the next character. */
+//		UD0TX = cChar;
+//	}
+//	else
+//	{
+//		/* The UART is no longer active. */
+//		ulTxInProgress = pdFALSE;
+//	}
 	
 	/* If reading a character from the Rx queue caused a task to unblock, and
 	the unblocked task has a priority higher than the currently running task,
@@ -229,12 +229,12 @@ portBASE_TYPE xHigherPriorityTaskWoken = pdFALSE;
 /* Rx interrupt handler.  This is called from the asm file wrapper. */
 void vUARTRxISRHandler( void )
 {
-char cChar;
+//char cChar;
 portBASE_TYPE xHigherPriorityTaskWoken = pdFALSE;
 
 	/* Send the received character to the Rx queue. */
 	//cChar = UD0RX;
-	xQueueSendFromISR( xRxedChars, &cChar, &xHigherPriorityTaskWoken );
+	//xQueueSendFromISR( xRxedChars, &cChar, &xHigherPriorityTaskWoken );
 	
 	/* If sending a character to the Tx queue caused a task to unblock, and
 	the unblocked task has a priority higher than the currently running task,

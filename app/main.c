@@ -6,7 +6,7 @@
 /*  CPU TYPE    :                                                      */
 /*                                                                     */
 /*  NOTE:THIS IS A TYPICAL EXAMPLE.                                    */
-/*  version 0.1                                                                   */
+/*  version 0.3                                                                   */
 /***********************************************************************/
 
 #include <stdlib.h>
@@ -75,9 +75,7 @@ StackType_t Stack3[ STACK_SIZE ];
 
 void vApplicationStackOverflowHook( TaskHandle_t xTask, char *pcTaskName );
 static void prvCheckTask( void *pvParameters );
-//static void prvCheckTask( void *pvParameters );
-void prvSetupHardware( void );
-//static void prvSetupHardware( void );
+static void prvSetupHardware( void );
 static volatile long lRegTestStatus = pdPASS;
 void vTaskCode( void * pvParameters );
 extern void vRegTest1( void *pvParameters );
@@ -174,22 +172,6 @@ unsigned portBASE_TYPE uxLEDToUse = 0;
 }
 /*-----------------------------------------------------------*/
 
-/*-----------------------------------------------------------*/
-
-//void vParTestInitialise( void )
-//{
-//	/* LED Port Initialization */
-//	PMCM &= ~( LED0_MASK | LED1_MASK );
-//	PMC10 &= ~ 1<<3;//Port mode
-//  PM10 &= ~(1<<3);//Output
-//	P10 &= ~(1<<3);//low level
-//	P10 |=  (1<<3);//high level
-	
-//	PMC8 &= ~(1<<5);
-//  PM8 &= ~ (1<<5);
-//	P8 |= (1<<5);//high level
-//}
-/*-----------------------------------------------------------*/
  void prvSetupHardware( void )
 {
 	/* Setup the LED outputs. */
@@ -216,28 +198,29 @@ void main(void)
 	xTaskCreate( vRegTest2, "Reg2", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
 	
 	vAltStartComTestTasks( mainCOMTEST_PRIORITY, mainBAUD_RATE, mainCOMTEST_LED );
-	//vStartLEDFlashTasks( mainFLASH_PRIORITY );
+	vStartLEDFlashTasks( mainFLASH_PRIORITY );
 	vCreateSuicidalTasks( mainCREATOR_TASK_PRIORITY );
+	
+	#if 1
+  xReturned = xTaskCreate(
+                    vTaskCode,       /* Function that implements the task. */
+                    "NAME",          /* Text name for the task. */
+                    STACK_SIZE,      /* Stack size in words, not bytes. */
+                    ( void * ) 1,    /* Parameter passed into the task. */
+                    tskIDLE_PRIORITY,/* Priority at which the task is created. */
+                    &xHandle );      /* Used to pass out the created task's handle. */
+if( xReturned == pdPASS )
+    {
+        /* The task was created.  Use the task's handle to delete the task. */
+        vTaskDelete( xHandle );
+    }
+	xTaskCreateStatic( vLED_1_Task, ( signed portCHAR * ) "LED1", STACK_SIZE, NULL, tskIDLE_PRIORITY+1, Stack1,&TaskBuffer1 );
+	xTaskCreateStatic( vLED_2_Task, ( signed portCHAR * ) "LED2", STACK_SIZE, NULL, tskIDLE_PRIORITY+3, Stack2,&TaskBuffer2 );
+	xTaskCreateStatic( vLED_3_Task, ( signed portCHAR * ) "LED3", STACK_SIZE, NULL, tskIDLE_PRIORITY+2, Stack3,&TaskBuffer3 );      
+	#endif
+	
 	vTaskStartScheduler();
 	for( ;; );
-	
-//  xReturned = xTaskCreate(
-//                    vTaskCode,       /* Function that implements the task. */
-//                    "NAME",          /* Text name for the task. */
-//                    STACK_SIZE,      /* Stack size in words, not bytes. */
-//                    ( void * ) 1,    /* Parameter passed into the task. */
-//                    tskIDLE_PRIORITY,/* Priority at which the task is created. */
-//                    &xHandle );      /* Used to pass out the created task's handle. */
-//if( xReturned == pdPASS )
-//    {
-//        /* The task was created.  Use the task's handle to delete the task. */
-//        //vTaskDelete( xHandle );
-//    }
-//	xTaskCreateStatic( vLED_1_Task, ( signed portCHAR * ) "LED1", STACK_SIZE, NULL, tskIDLE_PRIORITY+1, Stack1,&TaskBuffer1 );
-//	xTaskCreateStatic( vLED_2_Task, ( signed portCHAR * ) "LED2", STACK_SIZE, NULL, tskIDLE_PRIORITY+3, Stack2,&TaskBuffer2 );
-//	xTaskCreateStatic( vLED_3_Task, ( signed portCHAR * ) "LED3", STACK_SIZE, NULL, tskIDLE_PRIORITY+2, Stack3,&TaskBuffer3 );      
-//	vTaskStartScheduler();
-//	for( ;; );
 }
 
 
@@ -296,7 +279,7 @@ static void  vLED_1_Task(void *pvParameters)
         
 
     } 
-    vTaskDelete( NULL );
+//    vTaskDelete( NULL );
 
 }
 
@@ -312,7 +295,7 @@ static void  vLED_2_Task(void *pvParameters)
         testcount2++;
         //break;
     } 
-    vTaskDelete( NULL );
+   // vTaskDelete( NULL );
 
 }
 
@@ -325,6 +308,6 @@ static void  vLED_3_Task(void *pvParameters)
         testcount3++;
         //break;
     } 
-    vTaskDelete( NULL );
+  //  vTaskDelete( NULL );
 
 } 

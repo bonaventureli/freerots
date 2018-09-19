@@ -25,6 +25,7 @@
 -input=DefaultBuild\ParTest_Generic_Target_Board.obj
 -input=DefaultBuild\comtest.obj
 -input=DefaultBuild\serial.obj
+-input=DefaultBuild\flash.obj
 -debug
 -nocompress
 -output=DefaultBuild\test.abs

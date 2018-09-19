@@ -1,4 +1,4 @@
-Renesas Optimizing Linker (V2.06.00 )             19-Sep-2018 21:45:50
+Renesas Optimizing Linker (V2.06.00 )             19-Sep-2018 22:18:39
 
 *** Options ***
 
@@ -30,6 +30,7 @@ Renesas Optimizing Linker (V2.06.00 )             19-Sep-2018 21:45:50
 -input=DefaultBuild\ParTest_Generic_Target_Board.obj
 -input=DefaultBuild\comtest.obj
 -input=DefaultBuild\serial.obj
+-input=DefaultBuild\flash.obj
 -debug
 -nocompress
 -output=DefaultBuild\test.abs
@@ -53,18 +54,18 @@ RESET
 EIINTTBL
                                   00000200  0000067f       480   200
 .const
-                                  00008000  000080c3        c4   4
+                                  00008000  000080dc        dd   4
 .INIT_DSEC.const
-                                  000080c4  000080cf         c   4
+                                  000080e0  000080eb         c   4
 .INIT_BSEC.const
-                                  000080d0  000080d7         8   4
+                                  000080ec  000080f3         8   4
 .text
-                                  000080d8  0000e383      62ac   2
+                                  000080f4  0000e5b1      64be   2
 .data
-                                  0000e384  0000e44b        c8   4
+                                  0000e5b4  0000e67f        cc   4
 .data.R
-                                  fedfc000  fedfc0c7        c8   4
+                                  fedfc000  fedfc0cb        cc   4
 .bss
-                                  fedfc0c8  fedfef2f      2e68   4
+                                  fedfc0cc  fedfef33      2e68   4
 .stack.bss
-                                  fedfef30  fedff12f       200   4
+                                  fedfef34  fedff133       200   4

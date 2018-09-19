@@ -38,8 +38,8 @@
 
 #define partstNUM_LEDs	2
 
-#define LED0_MASK		( ( unsigned short ) 0x04 )
-#define LED1_MASK		( ( unsigned short ) 0x08 )
+#define LED0_MASK		( ( unsigned short ) 0x05 )
+#define LED1_MASK		( ( unsigned short ) 0x03 )
 
 static const unsigned short xLEDs[ partstNUM_LEDs ] = { LED0_MASK, LED1_MASK };
 
@@ -74,11 +74,13 @@ unsigned portBASE_TYPE uxLEDMask;
 		{
 			if( xValue )
 			{
-				//PCM &= ~uxLEDMask;
+				P8 &= ~(1<<uxLEDMask);//low level
+				P10 &= ~(1<<uxLEDMask);//low level
 			}
 			else
 			{
-				//PCM |= uxLEDMask;				
+				P8 |= (1<<uxLEDMask);//high level
+				P10 |= (1<<uxLEDMask);//high level
 			}
 		}
 		taskEXIT_CRITICAL();
@@ -96,14 +98,14 @@ unsigned portBASE_TYPE uxLEDMask;
 		
 		taskENTER_CRITICAL();
 		{
-//			if( PCM & uxLEDMask )
-//			{
-//				PCM &= ~uxLEDMask;
-//			}
-//			else
-//			{
-//				PCM |= uxLEDMask;
-//			}
+			if( P8 & uxLEDMask )
+			{
+				P8 &= ~uxLEDMask;
+			}
+			else
+			{
+				P8 |= uxLEDMask;
+			}
 		}
 		taskEXIT_CRITICAL();
 	}
