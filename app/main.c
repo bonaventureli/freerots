@@ -6,7 +6,7 @@
 /*  CPU TYPE    :                                                      */
 /*                                                                     */
 /*  NOTE:THIS IS A TYPICAL EXAMPLE.                                    */
-/*  version 0.3                                                                   */
+/*  version 0.4                                                                   */
 /***********************************************************************/
 
 #include <stdlib.h>
@@ -33,23 +33,13 @@
 #define mainINTEGER_TASK_PRIORITY           ( tskIDLE_PRIORITY )
 #define mainGEN_QUEUE_TASK_PRIORITY			( tskIDLE_PRIORITY )
 #define mainCOMTEST_PRIORITY				( tskIDLE_PRIORITY + 1 )
-
-/* Passed into the check task just as a test that the parameter passing
-mechanism is working correctly. */
 #define mainCHECK_PARAMETER					( ( void * ) 0x12345678 )
-
-/* The period between executions of the check task. */
 #define mainNO_ERROR_DELAY		( ( TickType_t ) 3000 / portTICK_PERIOD_MS  )
 #define mainERROR_DELAY			( ( TickType_t ) 500 / portTICK_PERIOD_MS )
-
-/* There are no spare LEDs for the comtest tasks, so this is just set to an
-invalid number. */
 #define mainCOMTEST_LED			( 4 )
-
-/* The baud rate used by the comtest task. */
 #define mainBAUD_RATE			( 9600 )
-
-void main(void);
+#define LED0_MASK		( ( unsigned short ) 0x04 )
+#define LED1_MASK		( ( unsigned short ) 0x08 )
 #define STACK_SIZE 100
 
 StaticTask_t IdleTaskBuffer;
@@ -70,8 +60,7 @@ StaticTask_t TaskBuffer2;
 StackType_t Stack2[ STACK_SIZE ];
 StaticTask_t TaskBuffer3;
 StackType_t Stack3[ STACK_SIZE ];
-#define LED0_MASK		( ( unsigned short ) 0x04 )
-#define LED1_MASK		( ( unsigned short ) 0x08 )
+
 
 void vApplicationStackOverflowHook( TaskHandle_t xTask, char *pcTaskName );
 static void prvCheckTask( void *pvParameters );
@@ -80,6 +69,56 @@ static volatile long lRegTestStatus = pdPASS;
 void vTaskCode( void * pvParameters );
 extern void vRegTest1( void *pvParameters );
 extern void vRegTest2( void *pvParameters );
+
+void main(void);
+void main(void)
+{
+	#if 0
+	BaseType_t xReturned;
+	TaskHandle_t xHandle = NULL;
+	#endif
+	
+
+	R_CLOCK_Init();                       /* Clock initialize    */
+	prvSetupHardware();
+	
+	#if 0
+	vStartSemaphoreTasks( mainSEM_TEST_PRIORITY );
+  vStartGenericQueueTasks( mainGEN_QUEUE_TASK_PRIORITY );
+  vStartQueuePeekTasks();
+ 	#endif
+	
+  xTaskCreate( prvCheckTask, "Check", configMINIMAL_STACK_SIZE, mainCHECK_PARAMETER, mainCHECK_TASK_PRIORITY, NULL );
+	xTaskCreate( vRegTest1, "Reg1", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
+	xTaskCreate( vRegTest2, "Reg2", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
+	#if 0
+	vAltStartComTestTasks( mainCOMTEST_PRIORITY, mainBAUD_RATE, mainCOMTEST_LED );
+	vStartLEDFlashTasks( mainFLASH_PRIORITY );
+	vCreateSuicidalTasks( mainCREATOR_TASK_PRIORITY );
+	#endif
+	
+	#if 0
+  xReturned = xTaskCreate(
+                    vTaskCode,       /* Function that implements the task. */
+                    "NAME",          /* Text name for the task. */
+                    STACK_SIZE,      /* Stack size in words, not bytes. */
+                    ( void * ) 1,    /* Parameter passed into the task. */
+                    tskIDLE_PRIORITY,/* Priority at which the task is created. */
+                    &xHandle );      /* Used to pass out the created task's handle. */
+	if( xReturned == pdPASS )
+    {
+        vTaskDelete( xHandle );
+    }
+  vApplicationStackOverflowHook( NULL , NULL );
+	#endif
+	
+	vTaskStartScheduler();
+	for( ;; );
+}
+void prvSetupHardware( void )
+{
+	vParTestInitialise();
+}
 /*-----------------------------------------------------------*/
 void vRegTest1( void *pvParameters )
 {
@@ -164,76 +203,14 @@ unsigned portBASE_TYPE uxLEDToUse = 0;
 			uxLEDToUse = 3;
 		}
 		#endif
-
-		/* Toggle the LED.  The toggle rate will depend on whether or not an
-		error has been found in any tasks. */
 		vParTestToggleLED( uxLEDToUse );
 	}
 }
-/*-----------------------------------------------------------*/
-
- void prvSetupHardware( void )
-{
-	/* Setup the LED outputs. */
-	vParTestInitialise();
-
-	/* Any additional hardware configuration can be added here. */
-}
-/*-----------------------------------------------------------*/
-void main(void)
-{
-	BaseType_t xReturned;
-	TaskHandle_t xHandle = NULL;
-	
-
-	R_CLOCK_Init();                       /* Clock initialize    */
-	prvSetupHardware();
-	
-	vStartSemaphoreTasks( mainSEM_TEST_PRIORITY );
-  vStartGenericQueueTasks( mainGEN_QUEUE_TASK_PRIORITY );
-  vStartQueuePeekTasks();
- 
-  xTaskCreate( prvCheckTask, "Check", configMINIMAL_STACK_SIZE, mainCHECK_PARAMETER, mainCHECK_TASK_PRIORITY, NULL );
-	xTaskCreate( vRegTest1, "Reg1", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
-	xTaskCreate( vRegTest2, "Reg2", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
-	
-	vAltStartComTestTasks( mainCOMTEST_PRIORITY, mainBAUD_RATE, mainCOMTEST_LED );
-	vStartLEDFlashTasks( mainFLASH_PRIORITY );
-	vCreateSuicidalTasks( mainCREATOR_TASK_PRIORITY );
-	
-	#if 1
-  xReturned = xTaskCreate(
-                    vTaskCode,       /* Function that implements the task. */
-                    "NAME",          /* Text name for the task. */
-                    STACK_SIZE,      /* Stack size in words, not bytes. */
-                    ( void * ) 1,    /* Parameter passed into the task. */
-                    tskIDLE_PRIORITY,/* Priority at which the task is created. */
-                    &xHandle );      /* Used to pass out the created task's handle. */
-if( xReturned == pdPASS )
-    {
-        /* The task was created.  Use the task's handle to delete the task. */
-        vTaskDelete( xHandle );
-    }
-	xTaskCreateStatic( vLED_1_Task, ( signed portCHAR * ) "LED1", STACK_SIZE, NULL, tskIDLE_PRIORITY+1, Stack1,&TaskBuffer1 );
-	xTaskCreateStatic( vLED_2_Task, ( signed portCHAR * ) "LED2", STACK_SIZE, NULL, tskIDLE_PRIORITY+3, Stack2,&TaskBuffer2 );
-	xTaskCreateStatic( vLED_3_Task, ( signed portCHAR * ) "LED3", STACK_SIZE, NULL, tskIDLE_PRIORITY+2, Stack3,&TaskBuffer3 );      
-	#endif
-	
-	vTaskStartScheduler();
-	for( ;; );
-}
-
-
-/* Task to be created. */
 void vTaskCode( void * pvParameters )
 {
-    /* The parameter value is expected to be 1 as 1 is passed in the
-    pvParameters value in the call to xTaskCreate() below. */
     configASSERT( ( ( uint32_t ) pvParameters ) == 1 );
-
     for( ;; )
     {
-        /* Task code goes here. */
 				P8 |= (1<<5);//high leve
     }
 }
@@ -242,11 +219,9 @@ void vApplicationStackOverflowHook( TaskHandle_t xTask, char *pcTaskName )
 {
     /* This will be called if a task overflows its stack.  pxCurrentTCB
     can be inspected to see which is the offending task. */
-    //xTaskCreateStatic( vLED_1_Task, ( signed portCHAR * ) "LED1", STACK_SIZE, NULL, tskIDLE_PRIORITY+1, Stack1,&TaskBuffer1 );
-    //xTaskCreateStatic( vLED_2_Task, ( signed portCHAR * ) "LED2", STACK_SIZE, NULL, tskIDLE_PRIORITY+3, Stack2,&TaskBuffer2 );
-    //xTaskCreateStatic( vLED_3_Task, ( signed portCHAR * ) "LED3", STACK_SIZE, NULL, tskIDLE_PRIORITY+2, Stack3,&TaskBuffer3 );      
-    vTaskStartScheduler(); 
-    for( ;; );
+    xTaskCreateStatic( vLED_1_Task, ( signed portCHAR * ) "LED1", STACK_SIZE, NULL, tskIDLE_PRIORITY+1, Stack1,&TaskBuffer1 );
+    xTaskCreateStatic( vLED_2_Task, ( signed portCHAR * ) "LED2", STACK_SIZE, NULL, tskIDLE_PRIORITY+3, Stack2,&TaskBuffer2 );
+    xTaskCreateStatic( vLED_3_Task, ( signed portCHAR * ) "LED3", STACK_SIZE, NULL, tskIDLE_PRIORITY+2, Stack3,&TaskBuffer3 );      
 }
 
 void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize )
@@ -272,14 +247,12 @@ static void  vLED_1_Task(void *pvParameters)
     xLastWakeTime = xTaskGetTickCount ();
     for( ;; )
     {     
-        //vTaskDelay(1000/portTICK_RATE_MS); 
-        // Wait for the next cycle.
+        vTaskDelay(1000/portTICK_RATE_MS); 
         vTaskDelayUntil( &xLastWakeTime, xFrequency );
         testcount1++;
-        
-
+        break;
     } 
-//    vTaskDelete( NULL );
+    vTaskDelete( NULL );
 
 }
 
@@ -290,12 +263,10 @@ static void  vLED_2_Task(void *pvParameters)
     for( ;; )
     {     
         vTaskDelay(500/portTICK_RATE_MS); 
-        /* Wait until it is time to check all the other tasks again. */
-        
         testcount2++;
-        //break;
+        break;
     } 
-   // vTaskDelete( NULL );
+    vTaskDelete( NULL );
 
 }
 
@@ -306,8 +277,8 @@ static void  vLED_3_Task(void *pvParameters)
     {     
         vTaskDelay(2000/portTICK_RATE_MS); 
         testcount3++;
-        //break;
+        break;
     } 
-  //  vTaskDelete( NULL );
+    vTaskDelete( NULL );
 
 } 

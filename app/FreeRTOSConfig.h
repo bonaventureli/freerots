@@ -88,16 +88,16 @@
 	#define INCLUDE_vTaskDelay				1
 	#define configUSE_TASK_NOTIFICATIONS     1
 	
-	 #define configUSE_TIMERS                1   // 使能软件定时器
-    #define configTIMER_TASK_PRIORITY       1   // 确定软件定时器进程优先级(根据具体应用而定，不要设的过低，否则精度也会随之下降)
-    #define configTIMER_QUEUE_LENGTH        10  // 定时器命令队列(Timer Command Queue)长度
-    #define configTIMER_TASK_STACK_DEPTH    512 // 分配给软件定时器任务的内存大小
-    
-    #define INCLUDE_eTaskGetState             1
+	#define configUSE_TIMERS                1   // enable timer
+	#define configTIMER_TASK_PRIORITY       1   // config timer task priority (can't be too low,or influence the accuracy)
+	#define configTIMER_QUEUE_LENGTH        10  // 
+	#define configTIMER_TASK_STACK_DEPTH    512 // 
+	#define INCLUDE_eTaskGetState             1
 
     
     #define   configSUPPORT_STATIC_ALLOCATION 1
     #define  configSUPPORT_DYNAMIC_ALLOCATION 1 
+		#define configGENERATE_RUN_TIME_STATS 1
 
 	/* This IAR workspace contains several different projects - each of which
 	is targeted at a different device variant.  The definitions past this point

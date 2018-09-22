@@ -684,6 +684,13 @@
       <TreeImageGuid>941832c1-fc3b-4e1b-94e8-01ea17128b42</TreeImageGuid>
       <ParentItem>54adf567-dcc8-40db-8d5f-eeaa216c98ca</ParentItem>
     </Instance>
+    <Instance Guid="390e4dc6-13d3-462d-9da1-1c09243c03ca">
+      <Name>flash.c</Name>
+      <Type>File</Type>
+      <RelativePath>Common\Minimal\flash.c</RelativePath>
+      <TreeImageGuid>941832c1-fc3b-4e1b-94e8-01ea17128b42</TreeImageGuid>
+      <ParentItem>54adf567-dcc8-40db-8d5f-eeaa216c98ca</ParentItem>
+    </Instance>
     <Instance Guid="735c4978-b2e8-434e-b69b-8be0e5515501">
       <Name>semtest.c</Name>
       <Type>File</Type>
@@ -844,7 +851,9 @@
       <SourceItemType25>CSource</SourceItemType25>
       <SourceItemGuid26>0426d9de-8e73-4d5e-b934-e694c0593913</SourceItemGuid26>
       <SourceItemType26>CSource</SourceItemType26>
-      <SourceItemCount>27</SourceItemCount>
+      <SourceItemGuid27>390e4dc6-13d3-462d-9da1-1c09243c03ca</SourceItemGuid27>
+      <SourceItemType27>CSource</SourceItemType27>
+      <SourceItemCount>28</SourceItemCount>
       <LastDeviceChangedCounter>0</LastDeviceChangedCounter>
     </Instance>
     <Instance Guid="989d6783-59a0-4525-8ee4-a067fda90fe2">
@@ -1822,6 +1831,10 @@ Source\include
       <ItemAddTime>636729772025590130</ItemAddTime>
       <ItemAddTimeCount>0</ItemAddTimeCount>
     </Instance>
+    <Instance Guid="390e4dc6-13d3-462d-9da1-1c09243c03ca">
+      <ItemAddTime>636729922081892223</ItemAddTime>
+      <ItemAddTimeCount>0</ItemAddTimeCount>
+    </Instance>
     <Instance Guid="ff6292d8-755b-48e4-928f-58b9d98af783">
       <TimeTagModified-SourceItem0--0>-8586644375380577731</TimeTagModified-SourceItem0--0>
       <SourceItem0-IsLockedByUser>False</SourceItem0-IsLockedByUser>
@@ -1923,6 +1936,10 @@ Source\include
       <SourceItem26-IsLockedByUser>False</SourceItem26-IsLockedByUser>
       <SourceItem26-IndividualCompileOption-0>False</SourceItem26-IndividualCompileOption-0>
       <SourceItem26-BuildingTarget-0>True</SourceItem26-BuildingTarget-0>
+      <TimeTagModified-SourceItem27--0>-8586642402772883585</TimeTagModified-SourceItem27--0>
+      <SourceItem27-IsLockedByUser>False</SourceItem27-IsLockedByUser>
+      <SourceItem27-IndividualCompileOption-0>False</SourceItem27-IndividualCompileOption-0>
+      <SourceItem27-BuildingTarget-0>True</SourceItem27-BuildingTarget-0>
     </Instance>
     <Instance Guid="149baf2a-1b8c-4f78-9702-3ac495e87f5a">
       <TimeTagModified-SourceItem17--0>-8586644385447929941</TimeTagModified-SourceItem17--0>
